@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
 @RequestMapping("/agendamento")
 public class AgendamentoController {
 
@@ -44,6 +45,8 @@ public class AgendamentoController {
             // Se não encontrar, cria um novo
             profissional = new Profissional();
             profissional.setNome(nomeProfissional);
+            profissional.setLogin("defaultLogin"); // Defina um valor padrão ou obtenha de `dados`
+            profissional.setSenha("defaultSenha"); // Defina um valor padrão ou obtenha de `dados`
             profissionalRepository.save(profissional);
         } else {
             // Se encontrar, escolhe o primeiro da lista
@@ -95,6 +98,8 @@ public class AgendamentoController {
                 // Se não encontrar, cria um novo
                 profissional = new Profissional();
                 profissional.setNome(nomeProfissional);
+                profissional.setLogin("defaultLogin"); // Defina um valor padrão ou obtenha de `dados`
+                profissional.setSenha("defaultSenha"); // Defina um valor padrão ou obtenha de `dados`
                 profissionalRepository.save(profissional);
             } else {
                 // Se encontrar, usa o primeiro da lista
@@ -118,8 +123,6 @@ public class AgendamentoController {
         // Caso não encontre o agendamento com o ID fornecido
         return ResponseEntity.notFound().build();
     }
-
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarAgendamento(@PathVariable Long id) {
