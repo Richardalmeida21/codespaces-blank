@@ -4,5 +4,6 @@ public enum Servicos {
     MANICURE,
     PEDICURE,
     CABELO,
-    DEPILACAO
+    DEPILACAO,
+    PODOLOGIA
 }
