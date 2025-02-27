@@ -8,6 +8,7 @@ public interface ProfissionalRepository extends JpaRepository<Profissional, Long
 
     // Retorna uma lista de profissionais com o nome fornecido
     List<Profissional> findAllByNome(String nome);
+    Profissional findByLogin(String login);
 }
 
 
